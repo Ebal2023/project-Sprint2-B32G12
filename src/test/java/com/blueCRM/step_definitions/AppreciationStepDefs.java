@@ -1,10 +1,8 @@
 package com.blueCRM.step_definitions;
-
 import com.blueCRM.pages.ActivityStreamPage;
 import com.blueCRM.pages.AppreciationPage;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 public class AppreciationStepDefs {
+    // Initialize page objects
     ActivityStreamPage streamPage = new ActivityStreamPage();
     AppreciationPage appreciation = new AppreciationPage();
 
