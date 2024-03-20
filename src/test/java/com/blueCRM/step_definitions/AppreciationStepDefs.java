@@ -2,6 +2,7 @@ package com.blueCRM.step_definitions;
 
 import com.blueCRM.pages.ActivityStreamPage;
 import com.blueCRM.pages.AppreciationPage;
+import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -10,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

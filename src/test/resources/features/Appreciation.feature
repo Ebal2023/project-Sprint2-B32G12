@@ -1,4 +1,3 @@
-@wip_amiri
 Feature: As a user, I should be able to upload files and pictures while sending appreciation
 
   Background:
@@ -37,7 +36,7 @@ Feature: As a user, I should be able to upload files and pictures while sending 
      # | marketing |
       #| helpdesk  |
 
-
+  @wip_amiri
   Scenario Outline:  Verify that the user can remove files and images at any time before sending.
     Given the user logged in as "<userType>"
     And is on the "Activity Stream" page
