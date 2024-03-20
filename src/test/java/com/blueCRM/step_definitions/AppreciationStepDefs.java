@@ -52,10 +52,10 @@ public class AppreciationStepDefs {
 
     @When("selects the {string} file from the specified directory")
     public void selects_a_file_from_the_files_directory(String fileType) {
-        String filePath = ConfigurationReader.getProperty(fileType + "_file_path");
-        appreciation.uploadFilesAndImageInput.sendKeys(filePath);
-
-
+        String filePath = ConfigurationReader.getProperty(fileType + "_file_path"); //getting file path
+        String projectPath=System.getProperty("user.dir"); //getting user details
+        String fullPath=projectPath+"/"+filePath;
+        appreciation.uploadFilesAndImageInput.sendKeys(fullPath);
     }
 
 
