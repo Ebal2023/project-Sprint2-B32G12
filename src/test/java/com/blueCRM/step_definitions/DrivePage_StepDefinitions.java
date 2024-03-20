@@ -21,7 +21,7 @@ public class DrivePage_StepDefinitions {
 
     @Then("the user sees the modules")
     public void the_user_sees_the_modules(io.cucumber.datatable.DataTable dataTable) {
-        //need to locate each module seperately.
+
 
         Assert.assertTrue(drivePage.myDriveModule.isDisplayed());
         Assert.assertTrue(drivePage.allDocumentsModule.isDisplayed());

@@ -11,12 +11,12 @@ Feature: Accessing the Drive page
     Given the user logged in as "<userType>"
     And the user clicks on the "Drive" option
     Then the user sees the modules
-      | My Drive                  |
-      | All Documents             |
-      | Company Drive             |
-      | Sales and Marketing       |
-      | Top Managements documents |
-      | Drive Cleanup             |
+      | My Drive                   |
+      | All Documents              |
+      | Company Drive              |
+      | Sales and Marketing        |
+      | Top Management's documents |
+      | Drive Cleanup              |
 
 
 
