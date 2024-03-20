@@ -35,10 +35,10 @@ public class ActivityStreamPage {
             moduleAsElement.click();
         }
     }
-    public void navigateToActivityTabs(String tabName) {
-        String locator = "//span[.='" + tabName + "']/span";
-        Driver.getDriver().findElement(By.xpath(locator)).click();
-    }
+
+
+
+
 
     public void navigateToActivityMoreMenuOptions(String menuName) {
         String locator = "(//span[.='" + menuName + "'])[2]";
