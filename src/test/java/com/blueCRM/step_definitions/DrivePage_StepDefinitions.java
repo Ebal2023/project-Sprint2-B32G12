@@ -25,17 +25,7 @@ public class DrivePage_StepDefinitions {
     @Then("the user sees the modules")
     public void the_user_sees_the_modules(List<String> modules) {
 
-        List<WebElement> driveModules = new List<WebElement>
 
-                //Make a list to store the string of the modules as webelements (expected)
-                // Then compare with actual.
-
-
-        for (String each : modules) {
-
-
-
-        }
 
 
         Assert.assertTrue(drivePage.myDriveModule.isDisplayed());
