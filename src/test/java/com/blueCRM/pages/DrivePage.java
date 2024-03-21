@@ -28,6 +28,9 @@ public class DrivePage {
 
     @FindBy(xpath = "//span[*= 'Drive Cleanup']")
     public WebElement driveCleanupModule;
+    @FindBy(xpath = "//span[*= 'More']")
+    public WebElement moreButton;
+
 
 
 
