@@ -12,6 +12,17 @@ public class AppreciationPage extends ActivityStreamPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
+    @FindBy(xpath = "//span[contains(@id, 'bxid')]")
+    public WebElement newlyInsertedFile;
+
+    @FindBy(xpath = "//span[@class='feed-add-post-loading']")
+    public WebElement fileUploadLoadingBar;
+
+    @FindBy(xpath = "//span[@class='del-but']")
+    public WebElement removeFileIcon;
+    @FindBy(xpath ="(//span[.='Insert in text'])[2]")
+    public WebElement insertInTextBtn;
     @FindBy(tagName = "body")
     public WebElement appreciationEditor;
 
