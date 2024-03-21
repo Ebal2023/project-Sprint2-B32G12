@@ -23,12 +23,12 @@ public class DrivePage {
     public WebElement companyDriveModule;
     @FindBy(xpath = "//span[*= 'Sales and Marketing']")
     public WebElement salesAndMarketingModule;
-    @FindBy(xpath = "//span[*= 'Top Management's documents']")
+    @FindBy(xpath = "(//span[@class='main-buttons-item-text-title'])[11]")
     public WebElement topManagementDocumentsModule;
 
-    @FindBy(xpath = "//span[*= 'Drive Cleanup']")
+    @FindBy(xpath = "(//span[@class='main-buttons-item-text-title'])[12]")
     public WebElement driveCleanupModule;
-    @FindBy(xpath = "//span[*= 'More']")
+    @FindBy(id = "top_menu_id_docs_more_button")
     public WebElement moreButton;
 
 
