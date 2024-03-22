@@ -17,6 +17,7 @@ public class AppreciationStepDefs {
 
     @Given("is on the {string} page")
     public void theUserIsOnThePage(String moduleName) {
+
         streamPage.navigateToModule(moduleName);
     }
 
