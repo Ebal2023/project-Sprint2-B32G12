@@ -10,14 +10,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class AppreciationStepDefs {
     // Initialize page objects
@@ -45,7 +39,7 @@ public class AppreciationStepDefs {
     }
 
 
-    @Then("user should see {string} message posted on the feed")
+    @Then("user sees {string} message posted on the feed")
     public void user_should_see_posted_on_the_feed(String expectedLastPost) {
         Assert.assertEquals(expectedLastPost, appreciation.lastPostInFeed.getText());
     }
@@ -123,7 +117,23 @@ public class AppreciationStepDefs {
 
     @Then("the system displays an error message {string}")
     public void theSystemDisplaysAnErrorMessage(String expectedErrorMessage) {
-        Assert.assertEquals(expectedErrorMessage,appreciation.titleErrorMessage.getText());
+        Assert.assertEquals(expectedErrorMessage,appreciation.errorMessage.getText());
     }
 
+    @When("the user attempts to send an appreciation without recipient")
+    public void theUserAttemptsToSendAnAppreciationWithoutRecipient() {
+        appreciation.removeAllEmployeeBtn.click();
+        appreciation.sendButton.click();
+    }
+
+    @Then("user sees message sent to the {string} on the feed")
+    public void userSeesMessageSentToTheOnTheFeed(String expectedRecipient) {
+        Assert.assertEquals(expectedRecipient,appreciation.lastMessageRecipientInFeed);
+    }
+
+    @And("adds a recipient to the To field")
+    public void addsARecipientToTheToField() {
+        appreciation.removeAllEmployeeBtn.click();
+
+    }
 }
