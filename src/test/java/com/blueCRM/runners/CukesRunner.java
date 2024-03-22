@@ -14,8 +14,13 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/blueCRM/step_definitions",
+  B32G12-61_Logout_Masoom
         dryRun = false,
         tags = "@masoom",
+
+        dryRun =false,
+        tags = "@wip_amiri",
+
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
