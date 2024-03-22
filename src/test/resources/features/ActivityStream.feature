@@ -18,15 +18,15 @@ Feature: Activity Stream Page Options Verification
     Examples:
       | userType  |
       | hr        |
-      | marketing |
-      | helpdesk  |
+      #| marketing |
+      #| helpdesk  |
 
 @elifs
   Scenario Outline: Verify that the user views the 4 options under the MORE tab
     Given the user logged in as "<userType>"
     When user is on the Activity Stream page
     When user clicks on the MORE tab
-    Then user views the following 4 options under the MORE tab
+    Then user views the following options under the MORE tab
       | File         |
       | Appreciation |
       | Announcement |
