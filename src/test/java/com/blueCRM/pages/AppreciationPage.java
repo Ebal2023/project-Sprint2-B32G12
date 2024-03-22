@@ -16,6 +16,8 @@ public class AppreciationPage extends ActivityStreamPage {
     @FindBy(xpath = "//span[contains(@id, 'bxid')]")
     public WebElement newlyInsertedFile;
 
+
+
     @FindBy(xpath = "(//*[@class='feed-add-post-destination-new'])[1]")
     public WebElement lastMessageRecipientInFeed;
     @FindBy(css = ".feed-add-info-text")
@@ -23,6 +25,9 @@ public class AppreciationPage extends ActivityStreamPage {
 
     @FindBy(className = "feed-add-post-del-but")
     public WebElement removeAllEmployeeBtn;
+
+    @FindBy(id="bx-destination-tag")
+    public WebElement addRecipientLink;
 
     @FindBy(id="feed-add-post-destination-input")
     public WebElement recipientInputBox;
@@ -48,6 +53,9 @@ public class AppreciationPage extends ActivityStreamPage {
 
     @FindBy(id="blog-submit-button-save")
     public WebElement sendButton;
+
+    @FindBy(id="blog-submit-button-cancel")
+    public WebElement cancelButton;
 
 
 
