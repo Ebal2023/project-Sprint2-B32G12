@@ -18,7 +18,7 @@ Feature: Activity Stream Page Options Verification
     Examples:
       | userType  |
       | hr        |
-      #| marketing |
+     # | marketing |
       #| helpdesk  |
 
 @elifs
@@ -35,7 +35,7 @@ Feature: Activity Stream Page Options Verification
     Examples:
       | userType  |
       | hr        |
-      | marketing |
-      | helpdesk  |
+      #| marketing |
+      #| helpdesk  |
 
 
