@@ -10,6 +10,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -94,13 +96,25 @@ public class AppreciationStepDefs {
 
     @And("clicks on the x icon next to the uploaded file")
     public void clicksOnTheXIconNextToTheUploadedFile() {
-        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(1)).until(ExpectedConditions.invisibilityOf(appreciation.fileUploadLoadingBar));
+        BrowserUtils.waitForClickablility(appreciation.removeAllEmployeeBtn,5);
         appreciation.removeFileIcon.click();
+
     }
 
     @Then("the uploaded file is no longer visible")
     public void theUploadedFileIsNoLongerVisible() {
         Assert.assertTrue(appreciation.uploadedFilesList.isEmpty());
+
+    }
+
+    @And("clicks on the x button on the All employees button")
+    public void clicksOnTheXButtonOnTheAllEmployeesButton() {
+        ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].click();",appreciation.removeAllEmployeeBtn);
+    }
+
+    @And("selects sender {string} from the recipient input box")
+    public void selectsNewFromTheRecipientInputBox(String sender) {
+        appreciation.recipientInputBox.sendKeys(sender);
 
     }
 }

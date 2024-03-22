@@ -16,6 +16,12 @@ public class AppreciationPage extends ActivityStreamPage {
     @FindBy(xpath = "//span[contains(@id, 'bxid')]")
     public WebElement newlyInsertedFile;
 
+    @FindBy(xpath ="//*[@id='feed-add-post-destination-item']/span/span[2]")
+    public WebElement removeAllEmployeeBtn;
+
+    @FindBy(id="feed-add-post-grat-input")
+    public WebElement recipientInputBox;
+
     @FindBy(xpath = "//span[@class='feed-add-post-loading']")
     public WebElement fileUploadLoadingBar;
 
