@@ -11,12 +11,15 @@ public class LogoutPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy()
-    public WebElement searchBox;
 
 
-    @FindBy()
-    public WebElement searchLotButton;
+
+    @FindBy(id="user-name")
+    public WebElement profileIcon;
+
+
+    @FindBy(xpath = "(//*[@class='menu-popup-item-text'])[5]")
+    public WebElement logoutOption;
 
 
 }

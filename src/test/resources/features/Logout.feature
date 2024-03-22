@@ -1,4 +1,4 @@
-@Masoom
+@masoom
 Feature:As a user, I should be able to log out
   Background:
     Given the user is on the login page
