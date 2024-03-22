@@ -67,9 +67,6 @@ public class ActivityStreamPage {
     }
 
 
-
-
-
     public void navigateToActivityMoreMenuOptions(String menuName) {
         String locator = "(//span[.='" + menuName + "'])[2]";
         Driver.getDriver().findElement(By.xpath(locator)).click();

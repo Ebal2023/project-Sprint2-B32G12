@@ -1,3 +1,4 @@
+@wip_amiri
 Feature: As a user, I should be able to upload files and pictures while sending appreciation
 
   Background:
@@ -49,25 +50,38 @@ Feature: As a user, I should be able to upload files and pictures while sending 
 
 
     Examples: the user can login as following roles
-      | userType  |
+      | userType |
      #| hr        |
      #| marketing |
-      | helpdesk  |
+      | helpdesk |
 
-  @wip_amiri
+
   Scenario Outline: Verify that the user can send an appreciation by filling in the mandatory fields.
     Given the user logged in as "<userType>"
     And is on the "Activity Stream" page
     When the user clicks on the More drop-down
     And selects the "Appreciation" option
     And writes "Good Job" in the editor box
-    And clicks on the x button on the All employees button
-    And selects sender "hr1@cydeo.com" from the recipient input box
     And clicks on send button
     Then user should see "Good Job" message posted on the feed
 
     Examples: the user can login as following roles
+      | userType |
+      | hr       |
+     # | marketing |
+     # | helpdesk  |
+
+
+  Scenario Outline: Verify error message when sending appreciation without message content
+    Given the user logged in as "<userType>"
+    And is on the "Activity Stream" page
+    When the user clicks on the More drop-down
+    And selects the "Appreciation" option
+    When the user attempts to send an appreciation without message content
+    Then the system displays an error message "The message title is not specified"
+
+    Examples: the user can login as following roles
       | userType  |
-     #| hr        |
-     #| marketing |
-      | helpdesk  |
+      #| hr        |
+      | marketing |
+     # | helpdesk  |

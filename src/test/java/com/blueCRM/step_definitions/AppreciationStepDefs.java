@@ -28,7 +28,6 @@ public class AppreciationStepDefs {
     public void theUserIsOnThePage(String moduleName) {
 
 
-
         if (!(Driver.getDriver().getTitle().contains("Portal"))) {
             streamPage.navigateToModule(moduleName);
         }
@@ -59,8 +58,8 @@ public class AppreciationStepDefs {
     @When("selects the {string} file from the specified directory")
     public void selects_a_file_from_the_files_directory(String fileType) {
         String filePath = ConfigurationReader.getProperty(fileType + "_file_path"); //getting file path
-        String projectPath=System.getProperty("user.dir"); //getting user details
-        String fullPath=projectPath+"/"+filePath;
+        String projectPath = System.getProperty("user.dir"); //getting user details
+        String fullPath = projectPath + "/" + filePath;
         appreciation.uploadFilesAndImageInput.sendKeys(fullPath);
     }
 
@@ -100,7 +99,7 @@ public class AppreciationStepDefs {
 
     @And("clicks on the x icon next to the uploaded file")
     public void clicksOnTheXIconNextToTheUploadedFile() {
-        BrowserUtils.waitForClickablility(appreciation.removeAllEmployeeBtn,5);
+        BrowserUtils.waitForClickablility(appreciation.removeAllEmployeeBtn, 5);
         appreciation.removeFileIcon.click();
 
     }
@@ -113,12 +112,18 @@ public class AppreciationStepDefs {
 
     @And("clicks on the x button on the All employees button")
     public void clicksOnTheXButtonOnTheAllEmployeesButton() {
-        ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].click();",appreciation.removeAllEmployeeBtn);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", appreciation.removeAllEmployeeBtn);
     }
 
-    @And("selects sender {string} from the recipient input box")
-    public void selectsNewFromTheRecipientInputBox(String sender) {
-        appreciation.recipientInputBox.sendKeys(sender);
-
+    @When("the user attempts to send an appreciation without message content")
+    public void theUserAttemptsToSendAnAppreciationWithoutMessageContent() {
+        appreciation.sendButton.click();
     }
+
+
+    @Then("the system displays an error message {string}")
+    public void theSystemDisplaysAnErrorMessage(String expectedErrorMessage) {
+        Assert.assertEquals(expectedErrorMessage,appreciation.titleErrorMessage.getText());
+    }
+
 }
