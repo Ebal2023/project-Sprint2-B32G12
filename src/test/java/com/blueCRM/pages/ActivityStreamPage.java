@@ -47,6 +47,9 @@ public class ActivityStreamPage {
     @FindBy(css = ".menu-popup-item-text")
     public List<WebElement> allOptionsOfMoreDropdown;
 
+    @FindBy(xpath = "//div[@id='feed-add-post-form-tab']/span")
+    public List<WebElement> moduleOptions;
+
 
 
 
