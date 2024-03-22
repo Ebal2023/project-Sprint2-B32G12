@@ -61,15 +61,16 @@ Feature: As a user, I should be able to upload files and pictures while sending 
     And is on the "Activity Stream" page
     When the user clicks on the More drop-down
     And selects the "Appreciation" option
-    And writes "Good Job" in the editor box
+    And writes "<Appreciation Message>" in the editor box
+    And adds a recipient to the To field
     And clicks on send button
-    Then user should see "Good Job" message posted on the feed
+    Then user sees "<Expected Message>" message posted on the feed
 
-    Examples: the user can login as following roles
-      | userType |
-      | hr       |
-     # | marketing |
-     # | helpdesk  |
+    Examples: the user can login as following roles and send messages
+      | userType  | Appreciation Message | Expected Message |
+      | hr        | Well Done            | Well Done        |
+      | marketing | Good Work            | Good Work        |
+      | helpdesk  | Keep Up!             | Keep Up!         |
 
 
   Scenario Outline: Verify error message when sending appreciation without message content
@@ -85,3 +86,33 @@ Feature: As a user, I should be able to upload files and pictures while sending 
       #| hr        |
       | marketing |
      # | helpdesk  |
+
+  Scenario Outline: Verify error message when sending appreciation without recipient
+    Given the user logged in as "<userType>"
+    And is on the "Activity Stream" page
+    When the user clicks on the More drop-down
+    And selects the "Appreciation" option
+    When the user attempts to send an appreciation without recipient
+    Then the system displays an error message "Please specify at least one person."
+
+    Examples: the user can login as following roles
+      | userType  |
+      #| hr        |
+      | marketing |
+     # | helpdesk  |
+
+  Scenario Outline: Verify the delivery is 'All employees' by default.
+    #(user doesn't select any recipient)
+    Given the user logged in as "<userType>"
+    And is on the "Activity Stream" page
+    When the user clicks on the More drop-down
+    And selects the "Appreciation" option
+    And writes "<Appreciation Message>" in the editor box
+    And clicks on send button
+    Then user sees message sent to the "<Expected Recipient>" on the feed
+
+    Examples: the user can login as following roles
+      | userType  | Appreciation Message | Expected Recipient |
+      | hr        | Well Done            | To all employees   |
+      | marketing | Well Done            | To all employees   |
+      | helpdesk  | Well Done            | To all employees   |
