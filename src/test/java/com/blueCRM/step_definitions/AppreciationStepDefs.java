@@ -26,9 +26,13 @@ public class AppreciationStepDefs {
 
     @Given("is on the {string} page")
     public void theUserIsOnThePage(String moduleName) {
+
+
+
         if (!(Driver.getDriver().getTitle().contains("Portal"))) {
             streamPage.navigateToModule(moduleName);
         }
+
     }
 
     @When("the user clicks on the More drop-down")
