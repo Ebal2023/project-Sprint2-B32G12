@@ -1,29 +1,46 @@
 package com.blueCRM.step_definitions;
 
+import com.blueCRM.pages.ActivityStreamPage;
+import com.blueCRM.pages.EmployeePage;
+import com.blueCRM.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+import java.util.List;
 
 public class EmployeePage_StepDefinitions {
-    @Given("the user has logged in successfully")
-    public void the_user_has_logged_in_successfully() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
+        ActivityStreamPage activityStreamPage = new ActivityStreamPage();
+        EmployeePage employeePage = new EmployeePage();
+
+        /*@Given("the user clicks on the {string} option")
+        public void the_user_clicks_on_the_option(String employee) {
+
+            //specifically navigates to the Employee page
+            activityStreamPage.navigateToModule(employee);
+        }*/
+
+        @Then("the user sees following modules")
+        public void the_user_sees_the_modules(List<String> expectedModules){
+
+            List<String> actualModules = BrowserUtils.getElementsText(employeePage.modules);
+
+            Assert.assertEquals(expectedModules, actualModules);
+
+
+        }
+
+
+        // @Then("the {string} module should be displayed by default")
+        // public void the_module_should_be_displayed_by_default(String string) {
+        //    Assert.assertTrue(employeePage.pagetitleStarModule.isDisplayed());
+
+        // }
+
+        @Then("the Company Structure module is displayed by default")
+        public void theCompanyStructureModuleIsDisplayedByDefault() {
+            Assert.assertTrue(employeePage.pagetitleStarModule.isDisplayed());
+        }
     }
-    @When("the user navigates to the Employees page")
-    public void the_user_navigates_to_the_employees_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("the user should see the following modules:")
-    public void the_user_should_see_the_following_modules(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
-    }
-}
