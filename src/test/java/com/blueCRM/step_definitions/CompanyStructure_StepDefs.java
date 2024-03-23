@@ -5,6 +5,7 @@ import com.blueCRM.pages.CompanyStructurePage;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -61,7 +62,10 @@ public class CompanyStructure_StepDefs {
 
     @And("the user select {string} from popup-window")
     public void theUserSelectFromPopupWindow(String department) {
-        //departmentPage.selectParentDept(department);
+        departmentPage.dropDownList.click();
+        BrowserUtils.sleep(2);
+        departmentPage.dropDownList.isSelected();
+
 
 
     }
@@ -72,13 +76,19 @@ public class CompanyStructure_StepDefs {
     }
 
     @Then("the {string} should be added successfully")
-    public void the_should_be_added_successfully(String string) {
+    public void the_should_be_added_successfully(String expectedText) {
         //BrowserUtils.dropdownOptions_as_STRING((WebElement) departmentPage.listOfDepartment).contains(string);
-        Assert.assertTrue(BrowserUtils.dropdownOptions_as_STRING(departmentPage.dropDownList).contains(string));
-
-
+        //Assert.assertTrue(BrowserUtils.dropdownOptions_as_STRING(departmentPage.dropDownList).contains(string));
+       Assert.assertEquals(departmentPage.addeddept.getText(),expectedText);
 
     }
 
 
+
+
+    @Then("the ADD DEPARTMENT option should not be visible")
+    public void theADDDEPARTMENTOptionShouldNotBeVisible() {
+        Assert.assertTrue(!companyPage.isDisplayed(companyPage.addDepartment));
+
+    }
 }

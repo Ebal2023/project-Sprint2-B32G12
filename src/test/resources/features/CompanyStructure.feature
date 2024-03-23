@@ -1,4 +1,4 @@
-
+@yarif
 Feature: Use Functions on Company Structure
 
 
@@ -14,7 +14,7 @@ Feature: Use Functions on Company Structure
       | Helpdesk   |
      | Marketing  |
 
-@yarif
+
   Scenario: HR user can add a department
     Given the user logged in as "hr"
     And the user navigates to the Company Structure under the Employee menu
@@ -24,11 +24,12 @@ Feature: Use Functions on Company Structure
     And  the user click add button
     Then the "English" should be added successfully
 
-  @yarif2
+
   Scenario Outline: No "ADD DEPARTMENT" option for specific users
-    Given "<UserType>" user is logged in
+
+    Given the user logged in as "<UserType>"
     When the user navigates to the Company Structure under the Employee menu
-    Then the "ADD DEPARTMENT" option should not be visible
+    Then the ADD DEPARTMENT option should not be visible
 
     Examples:
       | UserType  |

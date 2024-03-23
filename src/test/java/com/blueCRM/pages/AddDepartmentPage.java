@@ -22,6 +22,9 @@ public class AddDepartmentPage extends CompanyStructurePage {
     public WebElement inputDept;
 
     @FindBy(id ="IBLOCK_SECTION_ID")
+    public WebElement dropDown;
+
+    @FindBy(xpath = "//option[contains(text(),'Cyber Vet')]")
     public WebElement dropDownList;
 
     @FindBy(xpath = "//span[@class='popup-window-button popup-window-button-accept']")
@@ -29,6 +32,9 @@ public class AddDepartmentPage extends CompanyStructurePage {
 
     @FindBy(xpath = "//a[@data-role='department_name']")
     public List<WebElement>  listOfDepartment;
+
+    @FindBy(xpath = "//a[@title='English']")
+    public WebElement addeddept;
 
     public void selectParentDept(String department){
         Select select = new Select(dropDownList);
