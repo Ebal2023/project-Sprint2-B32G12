@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class AppreciationStepDefs {
@@ -70,6 +71,7 @@ public class AppreciationStepDefs {
     public void writes_in_the_editor_box(String appreciationMsg) {
         Driver.getDriver().switchTo().frame(streamPage.editorIframe);
         appreciation.appreciationEditor.sendKeys(appreciationMsg);
+        Driver.getDriver().switchTo().defaultContent();
     }
 
     @When("clicks on send button")
@@ -128,12 +130,25 @@ public class AppreciationStepDefs {
 
     @Then("user sees message sent to the {string} on the feed")
     public void userSeesMessageSentToTheOnTheFeed(String expectedRecipient) {
-        Assert.assertEquals(expectedRecipient,appreciation.lastMessageRecipientInFeed);
+        Assert.assertEquals(expectedRecipient,appreciation.lastMessageRecipientInFeed.getText());
     }
 
-    @And("adds a recipient to the To field")
-    public void addsARecipientToTheToField() {
+    @And("adds a recipient {string} to the To field")
+    public void addsARecipientToTheToField(String recipient) {
         appreciation.removeAllEmployeeBtn.click();
+        appreciation.addRecipientLink.click();
+        appreciation.recipientInputBox.sendKeys(recipient+ Keys.ENTER);
 
+
+    }
+
+    @And("clicks on cancel button")
+    public void clicksOnCancelButton() {
+        appreciation.cancelButton.click();
+    }
+
+    @Then("the user sees the message box collapse")
+    public void theUserSeesTheMessageBoxCollapse() {
+        Assert.assertFalse(appreciation.sendButton.isDisplayed());
     }
 }
