@@ -1,9 +1,16 @@
-Feature: Access Employees Page
+@farid
+Feature: Accessing the Employee page
 
-  Scenario: User views the modules on the Employees page
-    Given the user has logged in successfully
-    When the user navigates to the Employees page
-    Then the user should see the following modules:
+  B32G12-66
+  User Story: As a user, I should be able to access the Employee page
+
+  Background: user is already on the login page
+    Given the user is on the login page
+
+  Scenario Outline:
+    Given the user logged in as "<userType>"
+    And the user clicks on the "Employee" option
+    Then the user sees following modules
       | Company Structure   |
       | Find Employee       |
       | Telephone Directory |
@@ -13,7 +20,20 @@ Feature: Access Employees Page
       | Birthdays           |
       | New page            |
 
-  Scenario: Company Structure is viewed by default on the Employees page
-    Given the user has logged in successfully
-    And the user navigates to the Employees page
-    Then the "Company Structure" module should be displayed by default
+    Examples: the user can login as following roles
+      | userType  |
+      | hr        |
+      | marketing |
+      | helpdesk  |
+
+
+  Scenario Outline:
+    Given the user logged in as "<userType>"
+      And the user clicks on the "Employee" option
+      Then the Company Structure module is displayed by default
+
+    Examples: the user can login as following roles
+      | userType  |
+      | hr        |
+      | marketing |
+      | helpdesk  |
