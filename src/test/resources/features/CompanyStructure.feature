@@ -1,4 +1,4 @@
-@yarif
+
 Feature: Use Functions on Company Structure
 
 
