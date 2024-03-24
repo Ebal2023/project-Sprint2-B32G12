@@ -2,6 +2,7 @@ package com.blueCRM.step_definitions;
 
 import com.blueCRM.pages.ActivityStreamPage;
 import com.blueCRM.pages.DrivePage;
+import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -25,18 +26,11 @@ public class DrivePage_StepDefinitions {
         activityStreamPage.navigateToModule(drive);
     }
 
-//    @Then("the user sees the modules")
-//    public void theUserSeesTheModules() {
-//        Assert.assertTrue(drivePage.myDriveModule.isDisplayed());
-//        Assert.assertTrue(drivePage.allDocumentsModule.isDisplayed());
-//        Assert.assertTrue(drivePage.companyDriveModule.isDisplayed());
-//        Assert.assertTrue(drivePage.salesAndMarketingModule.isDisplayed());
-//
-//        drivePage.moreButton.click();
-//        Assert.assertTrue(drivePage.topManagementDocumentsModule.isDisplayed());
-//        Assert.assertTrue(drivePage.driveCleanupModule.isDisplayed());
-//
-//    }
+//    @Then("user should be able to see following {int} modules in the Drive page")
+//    public void userShouldBeAbleToSeeFollowingModulesInTheDrivePage(int expectedModuleNumbers, List<String>expectedModules) {
+//        List<String> actualModules = BrowserUtils.getElementsText(drivePage.allModulesOfDrivePage);
+//        Assert.assertEquals(expectedModuleNumbers, actualModules.size());
+//        Assert.assertEquals(expectedModules, actualModules);
 
 
 
