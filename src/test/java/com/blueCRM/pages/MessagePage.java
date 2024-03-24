@@ -30,5 +30,15 @@ public class MessagePage {
     @FindBy(xpath = "//span[@class='del-but']")
     public WebElement removeAttachmentButton;
 
+    @FindBy(xpath = "(//input[@type='file'])[1]")
+    public WebElement uploadButton;
 
+    @FindBy(xpath = "//td[@class='files-name']")
+    public WebElement uploadSuccess;
+
+    @FindBy (xpath = "//span[contains(@id, 'bxid')]")
+    public WebElement fileInText;
+
+    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
+    public WebElement messageBody;
 }
