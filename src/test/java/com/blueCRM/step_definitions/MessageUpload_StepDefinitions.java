@@ -25,28 +25,6 @@ public class MessageUpload_StepDefinitions {
     MessagePage messagePage = new MessagePage();
     LoginPage loginPage = new LoginPage();
 
-    /*
-    @Given("the user logged in as {string}")
-    public void the_user_logged_in_as(String userType) {
-        //based on input enter that user information
-        String username =null;
-        String password =null;
-
-        if(userType.equalsIgnoreCase("hr")){
-            username = ConfigurationReader.getProperty("hr_username");
-            password = ConfigurationReader.getProperty("hr_password");
-        }else if(userType.equalsIgnoreCase("helpdesk")){
-            username = ConfigurationReader.getProperty("helpdesk_username");
-            password = ConfigurationReader.getProperty("helpdesk_password");
-        }else if(userType.equalsIgnoreCase("marketing")){
-            username = ConfigurationReader.getProperty("marketing_username");
-            password = ConfigurationReader.getProperty("marketing_password");
-        }
-        //send username and password and login
-        loginPage.login(username, password);
-    }
-
-*/
     @Given("the user is logged in as hr")
     public void theUserIsLoggedInAsHr() {
         loginPage.login(ConfigurationReader.getProperty("hr_username"), ConfigurationReader.getProperty("hr_password"));
@@ -70,22 +48,11 @@ public class MessageUpload_StepDefinitions {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(messagePage.uploadIcon));
         messagePage.uploadIcon.click();
-        System.out.println( System.getProperty("user.dir") + "/" + ConfigurationReader.getProperty("pdf_file_path"));
-
 
     }
 
     @When("user uploads {string}")
     public void user_uploads(String supportedFileType) {
-
-/*
-        String filePath = ConfigurationReader.getProperty(supportedFileType + "_file_path"); //getting file path
-        String projectPath=System.getProperty("user.dir"); //getting user details
-        String fullPath=projectPath+"/"+filePath;
-        messagePage.uploadButton.sendKeys(fullPath);
-
-       */
-
 
         switch (supportedFileType) {
             case ".pdf":
@@ -133,8 +100,6 @@ public class MessageUpload_StepDefinitions {
     public void user_sees_file_or_images_are_removed_from_the_message() {
 
 
-
-/*
         boolean isRemoved;
         try {
             isRemoved = !messagePage.uploadSuccess.isDisplayed();
@@ -142,7 +107,7 @@ public class MessageUpload_StepDefinitions {
             isRemoved = true;
         }
         Assert.assertTrue(isRemoved);
-*/
+
     }
 
 
