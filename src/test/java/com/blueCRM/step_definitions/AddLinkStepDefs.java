@@ -9,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -29,7 +30,7 @@ public class AddLinkStepDefs {
     @When("user clicks on message module")
     public void user_clicks_on_message_module() {
 
-        addLinkPage.MessageTab.click();
+        addLinkPage.messageModule.click();
 
     }
     @Given("clicks on link icon")
@@ -40,6 +41,7 @@ public class AddLinkStepDefs {
     @Given("enters {string} in linkURLBox")
     public void enters_text_in_link_url_box(String Link) {
 
+        addLinkPage.LinkUrlBox.clear();
         addLinkPage.LinkUrlBox.sendKeys(Link);
 
     }
@@ -53,24 +55,43 @@ public class AddLinkStepDefs {
 
         addLinkPage.sendButton.click();
     }
-   // @Then("user will  see " in new tab")
+    @Then("user will see link open in new tab")
     public void user_will_see_link_open_in_new_tab() {
 
+
+        Assert.assertTrue(Driver.getDriver().getWindowHandles().size()>1);
 
     }
 
 
     @And("adds {string} to the linkTextBox")
     public void addsToTheLinkTextBox(String text) {
-
-        addLinkPage.LinkTextBox.sendKeys(text);
+        addLinkPage.linkTextBox.clear();
+        addLinkPage.linkTextBox.sendKeys(text);
     }
 
     @Then("user should see added link in message box")
     public void userShouldSeeAddedLinkInMessageBox() {
+
+        Driver.getDriver().switchTo().frame(addLinkPage.frameName);
+        Assert.assertTrue(addLinkPage.attachedLink.isDisplayed());
+        Driver.getDriver().switchTo().defaultContent();
     }
 
     @Then("user will {string} open in new tab")
     public void userWillOpenInNewTab(String arg0) {
+    }
+
+    @And("user clicks on attached link in message box")
+    public void userClicksOnAttachedLinkInMessageBox() {
+        addLinkPage.lastLinkInFeed.click();
+    }
+
+    @Then("user is able to navigate to {string}")
+    public void userIsAbleToNavigateToTheCorrectURL(String expectedTitle) {
+        BrowserUtils.switchToWindow(expectedTitle);
+        BrowserUtils.verifyTitleContains(expectedTitle);
+
+
     }
 }
