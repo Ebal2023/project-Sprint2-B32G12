@@ -1,17 +1,39 @@
 Feature: Accessing Profile Pages Options
 
-  Scenario : Verify that the  hr can view the following options on My Profile page
-    When user login as hr
+  @Aya
+  Scenario Outline:Verify that the <userType> user can view the following options on My Profile page
+    Given the user logged in as "<userType>"
     And user clicks profile dropdown
     And user clicks My Profile option from profile options
     Then user should be able to see the following options on My Profile
+      | General       |
       | Drive         |
       | Tasks         |
       | Calendar      |
       | Conversations |
 
+    Examples:
+      | userType  |
+      | hr        |
+      | Helpdesk  |
+      | Marketing |
 
-  Scenario: Verify that the email which is  <username> under the General tab is the same as the user’s account.
-    When user login as hr
+  @Aya2
+  Scenario Outline: Verify that the email which is  <username> under the General tab is the same as the user’s account.
+
+    Given the user logged in as "<userType>"
     And user clicks profile dropdown
-    Then user should be able to see the email "hr1@cydeo.com" under the General tab is the same as the user’s account.
+    And user clicks My Profile option from profile options
+    Then user should be able to see the email "<username>" under the General tab is the same as the user’s account.
+
+    Examples:
+      | username              |
+      | hr1@cydeo.com         |
+      | helpdesk1@cydeo.com   |
+      | marketing94@cydeo.com |
+
+    Examples:
+      | userType  |
+      | hr        |
+      | Helpdesk  |
+      | Marketing |

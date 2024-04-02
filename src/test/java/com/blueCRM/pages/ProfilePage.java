@@ -9,22 +9,17 @@ import java.util.List;
 
 public class ProfilePage {
 
-    public void ProfilePage() {
+    public  ProfilePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
 
-    @FindBy(xpath = "//span[contains(@class,'menu-popup-item-text')]")
+    @FindBy(css = "#profile-menu-filter a")
     public List<WebElement> profileElements;
 
-    @FindBy(xpath = "//a[.='My Profile']")
+    @FindBy(xpath = "//a/span[.='My Profile']")
     public WebElement profilePagebutton;
 
-
-    @FindBy(xpath = "//td[.='E-Mail:']/..//a")
-    public WebElement emailText;
-
-    @FindBy(xpath = "//div[@onclick='showUserMenu()']")
-    public WebElement userProfileDropdown;
-
+    @FindBy(xpath = "//*[@id=\"user-block\"]")
+    public WebElement mainProfile;
 }
