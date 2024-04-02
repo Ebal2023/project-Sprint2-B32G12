@@ -1,13 +1,10 @@
-
+@messageFunctionality
 Feature: Message Functionality
   Agile Story: As a user, I should be able to upload files and pictures as messages
   in the following formats .pdf, .txt, .jpeg, .png, .docx
 
-  Background: user is already on the login page
-    Given the user is on the login page
-
   Scenario Outline: Message Upload Functionality
-    Given the user is logged in as hr
+    Given the user logged in as "<userType>"
     And user is on the Activity Stream
     When user clicks on the Message
     And then user clicks on the upload icon
@@ -15,16 +12,16 @@ Feature: Message Functionality
     Then user is able to see that file uploaded
 
     Examples: file formats that are supported by the application for upload
-      |supportedFileFormat|
-      |.pdf|
-      |.txt|
-      |.jpeg|
-      |.png|
-      |.docx|
+      | userType  | supportedFileFormat |
+      | hr        | .pdf                |
+      | marketing | .txt                |
+      | helpdesk  | .jpeg               |
+      | hr        | .png                |
+      | marketing | .docx               |
 
 
   Scenario Outline: Message Upload Functionality
-    Given the user is logged in as hr
+    Given the user logged in as "<userType>"
     And user is on the Activity Stream
     When user clicks on the Message
     And then user clicks on the upload icon
@@ -34,16 +31,16 @@ Feature: Message Functionality
 
 
     Examples: file formats that are supported by the application for upload
-      |supportedFileFormat|
-      | .pdf                |
-      | .txt                |
-      | .jpeg               |
-      | .png                |
-      | .docx               |
+      | userType  | supportedFileFormat |
+      | hr        | .pdf                |
+      | marketing | .txt                |
+      | helpdesk  | .jpeg               |
+      | hr        | .png                |
+      | marketing | .docx               |
 
-  @messageFunctionality
+
   Scenario Outline: Message Upload Functionality
-    Given the user is logged in as hr
+    Given the user logged in as "<userType>"
     And user is on the Activity Stream
     When user clicks on the Message
     And then user clicks on the upload icon
@@ -53,11 +50,12 @@ Feature: Message Functionality
     Then user sees file or images are removed from the message
 
     Examples: file formats that are supported by the application for upload
-      | supportedFileFormat |
-      | .pdf                |
-      | .txt                |
-      | .jpeg               |
-      | .png                |
-      | .docx               |
+      | userType  | supportedFileFormat |
+      | hr        | .pdf                |
+      | marketing | .txt                |
+      | helpdesk  | .jpeg               |
+      | hr        | .png                |
+      | marketing | .docx               |
+
 
 

@@ -6,7 +6,9 @@ import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MessagePage {
+import java.util.List;
+
+public class MessagePage extends BasePage{
 
     public MessagePage(){
 
@@ -21,7 +23,7 @@ public class MessagePage {
     public WebElement messageMenuOption;
 
 
-    @FindBy(xpath = "(//span[@class='feed-add-post-form-but feed-add-file'])[1]")
+    @FindBy(xpath = "(//*[contains(@id,'bx-b-uploadfile-blogPostForm')])[1]")
     public WebElement uploadIcon;
 
     @FindBy(xpath = "//span[*='Insert in text']")
@@ -36,7 +38,10 @@ public class MessagePage {
     @FindBy(xpath = "//td[@class='files-name']")
     public WebElement uploadSuccess;
 
-    @FindBy (xpath = "//span[contains(@id, 'bxid')]")
+    @FindBy(xpath = "//tr[contains(@id,'disk-edit-attachn')]")
+    public List<WebElement> uploadedFileList;
+
+    @FindBy (xpath = "//*[contains(@id,'bxid')]")
     public WebElement fileInText;
 
     @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
