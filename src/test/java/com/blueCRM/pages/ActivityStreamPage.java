@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class ActivityStreamPage {
     public ActivityStreamPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -25,6 +27,34 @@ public class ActivityStreamPage {
     @FindBy(id="left-menu-more-btn")
     public WebElement leftMenuMoreDropDown;
 
+
+
+    @FindBy(id="feed-add-post-form-tab-message")
+    public WebElement messageModule;
+
+    @FindBy(id="feed-add-post-form-tab-tasks")
+    public  WebElement taskModule;
+
+    @FindBy(id="feed-add-post-form-tab-calendar")
+    public  WebElement eventModule;
+
+    @FindBy(id="feed-add-post-form-tab-vote")
+    public  WebElement pollModule;
+
+    @FindBy(id="feed-add-post-form-link-more")
+    public  WebElement moreModule;
+
+    @FindBy(css = ".menu-popup-item-text")
+    public List<WebElement> allOptionsOfMoreDropdown;
+
+
+
+
+
+
+
+
+
     public void navigateToModule(String moduleName) {
         WebElement moduleAsElement = Driver.getDriver().findElement(By.partialLinkText(moduleName));
         try {
@@ -35,10 +65,7 @@ public class ActivityStreamPage {
             moduleAsElement.click();
         }
     }
-    public void navigateToActivityTabs(String tabName) {
-        String locator = "//span[.='" + tabName + "']/span";
-        Driver.getDriver().findElement(By.xpath(locator)).click();
-    }
+
 
     public void navigateToActivityMoreMenuOptions(String menuName) {
         String locator = "(//span[.='" + menuName + "'])[2]";
