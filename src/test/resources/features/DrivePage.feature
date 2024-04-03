@@ -10,13 +10,14 @@ Feature: Accessing the Drive page
   Scenario Outline:
     Given the user logged in as "<userType>"
     And the user clicks on the "Drive" option
-#    Then the user sees the modules
+#    Then user should be able to see following 6 modules in the Drive page
 #      | My Drive                   |
 #      | All Documents              |
 #      | Company Drive              |
 #      | Sales and Marketing        |
 #      | Top Management's documents |
 #      | Drive Cleanup              |
+
     Then the user sees the My Drive module
     And the user sees the All Documents module
     And  the user sees the Company Drive module

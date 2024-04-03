@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ActivityStreamStepDefs {
 
+    public Object navigate;
     ActivityStreamPage activityStreamPage = new ActivityStreamPage();
 
     @When("user is on the Activity Stream page")
