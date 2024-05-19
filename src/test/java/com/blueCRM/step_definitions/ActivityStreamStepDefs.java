@@ -24,12 +24,18 @@ public class ActivityStreamStepDefs {
     public void user_views_the_following_options_on_the_activity_stream_page(List<String> expectedModules){
 
         List<String> actualModules = new ArrayList<>();
-        actualModules.add(activityStreamPage.messageModule.getText());
-        actualModules.add(activityStreamPage.taskModule.getText());
-        actualModules.add(activityStreamPage.eventModule.getText());
-        actualModules.add(activityStreamPage.pollModule.getText());
-        actualModules.add(activityStreamPage.moreModule.getText());
 
+//        actualModules.add(activityStreamPage.messageModule.getText());
+//        actualModules.add(activityStreamPage.taskModule.getText());
+//        actualModules.add(activityStreamPage.eventModule.getText());
+//        actualModules.add(activityStreamPage.pollModule.getText());
+//        actualModules.add(activityStreamPage.moreModule.getText());
+
+//        for (WebElement eachModuleOption : activityStreamPage.moduleOptions) {
+//            actualModules.add(eachModuleOption.getText());
+//        }
+
+        actualModules = BrowserUtils.getElementsText(activityStreamPage.moduleOptions);
         Assert.assertEquals(expectedModules,actualModules);
 
     }
@@ -45,9 +51,10 @@ public class ActivityStreamStepDefs {
 
         BrowserUtils.waitForTitleContains("Portal");
         List<String> actualMoreOptions = new ArrayList<>();
-        for (WebElement eachMoreOption : activityStreamPage.allOptionsOfMoreDropdown) {
-            actualMoreOptions.add(eachMoreOption.getText());
-        }
+//        for (WebElement eachMoreOption : activityStreamPage.allOptionsOfMoreDropdown) {
+//            actualMoreOptions.add(eachMoreOption.getText());
+//        }
+        actualMoreOptions = BrowserUtils.getElementsText(activityStreamPage.allOptionsOfMoreDropdown);
         Assert.assertEquals(expectedMoreOptions,actualMoreOptions);
 
     }
