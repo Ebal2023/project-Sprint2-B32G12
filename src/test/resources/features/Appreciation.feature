@@ -69,7 +69,7 @@ Feature: As a user, I should be able to upload files and pictures while sending 
     Examples: the user can login as following roles and send messages
       | userType  | Appreciation Message | Expected Message |Recipient|
    #   | hr        | Well Done            | Well Done        |
-      | marketing | Good Work            | Good Work        |         hr1@cydeo.com|
+      | marketing |  Well Done            | Well Done        |         hr1@cydeo.com|
     #  | helpdesk  | Keep Up!             | Keep Up!         |
 
 
